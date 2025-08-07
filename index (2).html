@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+        <head>
+            <title>Login</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #FF00FF;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+                .login-container {
+                    background-color: white;
+                    padding: 30px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    width: 300px;
+                    text-align: center;
+                }
+                
+                h1 {
+                    color: #333;
+                    margin-bottom: 20px;
+                }
+                
+                input {
+                    width: 100%;
+                    padding: 10px;
+                    margin: 10px 0;
+                    border-radius: 5px;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                }
+                
+                button {
+                    width: 100%;
+                    padding: 10px;
+                    background-color: #00FF00;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                
+                button:hover {
+                    background-color: black;
+                }
+            </style>
+        </head>
+        <body>
+                
+            <div class="login-container" id="LoginBox">
+                <h1>Login</h1>
+                <form>
+                    <input type="text" id="username" placeholder="Username" required />
+                    <input type="password" id="password" placeholder="Password" required />
+                    <div id="errorHsg" class="error hidden"></div>
+                    <button OnClick="login()">Login</button>
+            </div>
+                <div class="Login-container hidden" id="welcomeBox">
+                    <h2>Selamat Datang</h2>
+                    <p id="welcomeUser"></p>
+                    <button onclick="Logout()">Logout</button>
+                </div>
+                
+                <script>
+                    const user = "gadzala";
+                    const pass = "1234";
+                    
+                    if (localStorage.getItem("LoginUser")) {
+                        showWelcome(localStorage.getItem("LoginUser"));
+                    }
+                    
+                    function login() {
+                        const uname = document.getElementById("username").value.trim();
+                        const pwd = document.getElementById("password").value.trim();
+                        const errorMsg = document.getElementById("errorMsg");
+                    
+                    
+                        if (!uname || !pwd) {
+                            errorMsg.textContent = "Username dan password wajib diisi."
+                            errorMsg.classList.remove("hidden")
+                        }
+                    </script>
+                </form>
+            </div>
+        </body>
+    </html>
+    
