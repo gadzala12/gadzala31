@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+        <head>
+            <title>Login</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    background-color: #FF00FF;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                }
+                .login-container {
+                    background-color: white;
+                    padding: 30px;
+                    border-radius: 8px;
+                    width: 300px;
+                    text-align: center;
+                }
+                
+                input, button {
+                    width: 100%;
+                    padding: 10px;
+                    margin: 10px 0;
+                    border-radius: 5px;
+                    border: 1px solid #ccc;
+                }
+                
+                button {
+                    width: 100%;
+                    padding: 10px;
+                    background-color: #00FF00;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                
+                button:hover {
+                    background: #28a745;
+                    color: black;
+                    border: none;
+                    cursor: pointer;
+                }
+                .hidden {
+                    display: none;
+                }
+                .error {
+                    color: red;
+                    font-size: 14px;
+                    margin-top: -5px;
+                }
+            </style>
+        </head>
+        <body>
+                
+            <div class="login-container" id="LoginBox">
+                <h2>Login</h2>
+                    <input type="text" id="username" placeholder="Username" />
+                    <input type="password" id="password" placeholder="Password" />
+                    <div id="errorMsg" class="error hidden"></div>
+                    <button onclick="login()">Login</button>
+            </div>
+            
+                <div class="Login-container hidden" id="welcomeBox">
+                    <h2>Selamat Datang</h2>
+                    <p id="welcomeUser"></p>
+                    <button onclick="Logout()">Logout</button>
+                </div>
+                
+                <script>
+                    const user = "gadzala";
+                    const pass = "123";
+                    
+                    if (localStorage.getItem("LoginUser")) {
+                        showWelcome(localStorage.getItem("LoginUser"));
+                    }
+                    
+            
+                    
+                    function login() {
+                        const uname = document.getElementById("username").value.trim();
+                        const pwd = document.getElementById("password").value.trim();
+                        const errorMsg = document.getElementById("errorMsg");
+                    
+                    
+                        if (!uname || !pwd) {
+                            errorMsg.textContent = "Username dan password wajib diisi."
+                            errorMsg.classList.remove("hidden")
+                            retun;
+                        }
+                        
+                        if (uname === user && pwd === pass) { 
+                            localStorage.setitem("loginUser", uname);
+                            showWelcome(uname);
+                        } else { 
+                            errorMsg.textContent "Username atau password salah."; 
+                            errorMsg.classList.remove("hidden");
+                        }
+                    }
+                        function logout() {
+                            localStorage.removeltem("loginUser"); 
+                            document.getElementById("loginBox").classList.remove("hidden"); 
+                            document.getElementById("welcomeBox").classList.add("hidden"); 
+                            document.getElementById("errorMsg").classList.add("hidden"); 
+                            document.getElementById("username").value = ""; 
+                            document.getElementById("password").value"";
+
+                        function showWelcome(name) { 
+                            document.getElementById("loginBox").classList.add("hidden"); 
+                            document.getElementById("welcomeBox").classList.remove("hidden"); 
+                            document.getElementById("welcomeUser").textContent = 'Halo, ${name}';
+                            
+                            
+                        }
+                    </script>
+        </body>
+    </html>
