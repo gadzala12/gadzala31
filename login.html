@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>
+            Halaman Register XI-E
+        </title>
+        <Link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Register</h1>
+        <div class="form-container">
+            <form id="registerForm">
+                <input type="text" id="nama" placeholder="Masukan Nama" required/>
+                <input type="email" id="email" placeholder="Masukan Email" required/>
+                <input type="password" id="password" placeholder="Masukan Password" required/>
+                <label> Jenis Kelamin :</label>
+                <div class="radio-group">
+                    <input type="radio" name="gender" id="Laki-laki"
+                    value="Laki-laki" required/>
+                    <label for="Laki-laki">Laki-Laki</label>
+                    <input type="radio" name="gender" id="Wanita"
+                    value="Wanita" required/>
+                    <label for="Wanita">Wanita</label>
+                    </div>
+                    <input type="date" id="tanggal" required/>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="setuju" required/>
+                        <label for="setuju">Anda menyetujui syarat dan ketentuan</label>
+                    </div>
+                    <button type="submit">Buat Akun</button>
+            
+            </form>
+        </div>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Jenis Kelamin</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+        </table>
+        
+    </body>
+</html>
